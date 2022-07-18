@@ -20,10 +20,14 @@ class Checker
 2.	Solution separate the check into 3 different methods
 
 class Checker
-    {
+{
+
         static bool batteryIsOk(float temperature, float soc, float chargeRate)
+        
         {
-            return batteryTemp(temperature) && batterySoc(soc) && chargeRate(chargeRate);
+        
+         return batteryTemp(temperature) && batterySoc(soc) && chargeRate(chargeRate);
+            
         }
 
         bool batteryTemp(float temp)
