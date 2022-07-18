@@ -18,3 +18,32 @@ class Checker
     
 1.	Violating – SRP, 3 different condition checking in one method
 2.	Solution separate the check into 3 different methods
+
+ bool batteryTemp(float temp)
+    {
+        if (temperature < 0 || temperature > 45)
+        {
+            Console.WriteLine("Temperature is out of range!");
+            return false;
+        }
+        return true;
+    }
+
+    bool batterySoc(float soc)
+    {
+        if (soc < 20 || soc > 80)
+        {
+            Console.WriteLine("State of Charge is out of range!");
+            return false;
+        }
+        return true;
+    }
+    bool chargeRate(float chargeRate)
+    {
+        if (chargeRate > 0.8)
+        {
+            Console.WriteLine("Charge Rate is out of range!");
+            return false;
+        }
+        return true;
+    }
