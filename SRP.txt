@@ -1,0 +1,43 @@
+//C# Code class Checker { static bool batteryIsOk(float temperature, float soc, float chargeRate) { if(temperature < 0 || temperature > 45) { Console.WriteLine("Temperature is out of range!"); return false; } else if(soc < 20 || soc > 80) { Console.WriteLine("State of Charge is out of range!"); return false; } else if(chargeRate > 0.8) { Console.WriteLine("Charge Rate is out of range!"); return false; } return true; }
+
+Violating – SRP, 3 different condition checking in one method
+Solution separate the check into 3 different methods
+class Checker {
+
+    static bool batteryIsOk(float temperature, float soc, float chargeRate)
+    
+    {
+    
+     return batteryTemp(temperature) && batterySoc(soc) && chargeRate(chargeRate);
+        
+    }
+
+    bool batteryTemp(float temp)
+    {
+        if (temperature < 0 || temperature > 45)
+        {
+            Console.WriteLine("Temperature is out of range!");
+            return false;
+        }
+        return true;
+    }
+
+    bool batterySoc(float soc)
+    {
+        if (soc < 20 || soc > 80)
+        {
+            Console.WriteLine("State of Charge is out of range!");
+            return false;
+        }
+        return true;
+    }
+    bool chargeRate(float Rate)
+    {
+        if (Rate > 0.8)
+        {
+            Console.WriteLine("Charge Rate is out of range!");
+            return false;
+        }
+        return true;
+    }
+}
